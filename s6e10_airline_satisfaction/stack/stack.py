@@ -1,9 +1,12 @@
 #!/usr/bin/env python
-"""Level-2 stacker: one L2 logistic regression on the logits of every OOF / test pair found under models/*/preds/.
+"""Level-2 stacker: one L2 logistic regression on the logits of every OOF / test pair found under models/*/preds/ and
+models/public_models/**/preds/.
 
 Pairs:
-  models/<model>/preds/<pair>_oof.npy + <pair>_test.npy   (our models, and public pairs dropped into models/public_models/preds/)
-  models/<model>/preds/<pair>_oof.csv + <pair>_test.csv   (an `id` column + one prediction column; aligned by id)
+  models/<model>/preds/<pair>_oof.npy + <pair>_test.npy   (our models)
+  models/public_models/preds/ and models/public_models/<any subfolder>/preds/   (public models: their pairs, or our runs
+                                                                                 of their code)
+  .csv instead of .npy: an `id` column + one prediction column (aligned by id)
 Every pair becomes logits: if all its values lie in [0, 1] they are probabilities (clipped to [1e-15, 1 - 1e-15], then logit);
 otherwise the pair already holds logits / log-likelihood ratios. Logits are clipped to +-30 and stored as float32.
 
@@ -34,14 +37,21 @@ def read_csv_pred(path, ids):
     return df.set_index('id').loc[ids, col].to_numpy(np.float64)
 
 
+def oof_files(models_dir):
+    """models/<model>/preds/*_oof.* plus models/public_models/**/preds/*_oof.* (any depth)."""
+    found = glob.glob(os.path.join(models_dir, '*', 'preds', '*_oof.*'))
+    found += glob.glob(os.path.join(models_dir, 'public_models', '**', 'preds', '*_oof.*'), recursive=True)
+    return sorted(set(found))
+
+
 def find_pairs(models_dir, train_ids, test_ids):
     pairs = []
-    for oof_path in sorted(glob.glob(os.path.join(models_dir, '*', 'preds', '*_oof.*'))):
+    for oof_path in oof_files(models_dir):
         ext = oof_path.rsplit('.', 1)[-1]
         if ext not in ('npy', 'csv'):
             continue
         test_path = oof_path[:-len(f'_oof.{ext}')] + f'_test.{ext}'
-        model = Path(oof_path).parents[1].name
+        model = os.path.relpath(Path(oof_path).parents[1], models_dir)
         name = f'{model}/{Path(oof_path).name[:-len(f"_oof.{ext}")]}'
         if not os.path.exists(test_path):
             print(f'skipping {name}: no test file', flush=True)

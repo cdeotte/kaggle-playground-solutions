@@ -1,0 +1,13 @@
+numpy
+pandas
+scipy
+scikit-learn
+xgboost
+lightgbm
+torch
+transformers
+huggingface_hub
+pytabkit
+# optional: cuML (RAPIDS) for the GPU logistic regressions and a fast stacker
+# model-specific packages: see each models/<model>/README.md
+# the GReaT replicas need their own environment: models/gpt2_replica/requirements.txt
