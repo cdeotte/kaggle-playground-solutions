@@ -1,0 +1,7 @@
+# The replica needs its own environment (old pins).
+be-great==0.0.3
+transformers==4.26.1
+torch
+pandas
+numpy
+scikit-learn

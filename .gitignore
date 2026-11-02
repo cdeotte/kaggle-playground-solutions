@@ -1,0 +1,21 @@
+# data and outputs are never committed
+**/data/*.csv
+**/data/*.zip
+**/preds/
+**/parts/
+**/checkpoints/
+**/features/
+**/cache/
+**/pretrained/
+**/runs/
+**/worlds/
+**/raw/
+*.jsonl.gz
+**/stack/submission.csv
+*.npy
+*.npz
+*.pt
+*.ckpt
+*.safetensors
+__pycache__/
+.ipynb_checkpoints/

@@ -1,0 +1,12 @@
+# train_generator.py needs its own environment with old pins (as ../gpt2_replica); these are the versions we used,
+# with torch 2.5.1 and Python 3.11. sample_world.py and make_world.py run in the base environment (../../requirements.txt).
+be-great==0.0.3
+transformers==4.26.1
+tokenizers==0.13.3
+datasets==2.10.1
+huggingface_hub==0.13.4
+pyarrow==12.0.1
+numpy==1.26.4
+pandas==2.1.4
+scikit-learn
+torch
