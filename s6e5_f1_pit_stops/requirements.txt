@@ -1,0 +1,16 @@
+numpy
+pandas
+scipy
+scikit-learn
+xgboost
+lightgbm
+catboost
+torch
+pytabkit
+ydf
+pytorch_tabular
+pytorch-tabnet
+tabicl[finetune]
+# TALENT models: see models/talent/README.md (pinned TALENT commit)
+# GPU: cuML / CuPy (RAPIDS) for the cuML models and a fast stacker
+# model-specific notes: see each models/<model>/README.md
