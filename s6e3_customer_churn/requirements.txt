@@ -1,0 +1,19 @@
+numpy
+pandas<3
+scipy
+scikit-learn
+xgboost
+lightgbm
+catboost
+ydf
+torch
+pytabkit
+pytorch_tabular
+pytorch-tabnet
+pytorch-frame
+torch_geometric
+tabicl
+tabpfn
+pymc
+# GPU: cuML / cuDF / CuPy (RAPIDS) for the stacker and the cuML models
+# model-specific notes: see each models/<model>/README.md
