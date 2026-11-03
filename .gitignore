@@ -17,5 +17,13 @@
 *.pt
 *.ckpt
 *.safetensors
+*.parquet
+*.feather
+*.pkl
+*.joblib
+*.cbm
+*.ubj
+**/catboost_info/
+**/lightning_logs/
 __pycache__/
 .ipynb_checkpoints/

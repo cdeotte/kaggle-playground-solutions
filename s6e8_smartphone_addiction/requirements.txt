@@ -1,0 +1,18 @@
+numpy
+pandas
+pyarrow
+scipy
+scikit-learn
+xgboost
+lightgbm
+catboost
+torch
+pytabkit
+ydf
+interpret
+tabpfn
+huggingface_hub
+flaml
+pytorch-tabnet
+# GPU: cuML / cuDF / CuPy (RAPIDS) for the cuML models, the GPU logistic regressions and a fast stacker
+# model-specific notes: see each models/<model>/README.md

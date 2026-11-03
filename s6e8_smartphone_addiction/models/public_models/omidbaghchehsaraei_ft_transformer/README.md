@@ -1,0 +1,30 @@
+# FT-Transformer by omidbaghchehsaraei (public notebook)
+
+OMID BAGHCHEH SARAEI's (@omidbaghchehsaraei) pytabkit FT-Transformer from the public notebook
+[FT-Transformer for Predicting Smartphone Addiction](https://www.kaggle.com/code/omidbaghchehsaraei/ft-transformer-for-predicting-smartphone-addiction)
+(version 1). Thank you, Omid!
+
+This is the notebook's model and features run on our 5 folds (`StratifiedKFold(5, shuffle=True, random_state=42)`, the
+same split the notebook uses).
+
+- **Features** (`../lib/ratio_te.py`): the 12 raw predictors as string categories, missing count and 9 screen-time
+  ratio features (NaN -> 0), and per raw predictor a smoothed target encoding (smoothing 10) and a frequency encoding.
+- **Model:** pytabkit `FTT_D_Classifier` with its default parameters, fitted with the fold's validation rows (best
+  epoch on the validation set). Test = mean of the 5 fold models.
+
+**Changed to run it on our folds:** the notebook computed the target / frequency encodings once on all training rows
+(5-fold out-of-fold) before its CV loop. Our run computes them inside each fold: the training rows get 5-fold inner
+out-of-fold target encodings, the validation and test rows the map fitted on all training rows of the fold, and the
+frequencies are counted on the fold's training rows.
+
+```
+python train.py            # all 5 folds; --folds 0,1 runs a subset (finished folds are kept in parts/ and skipped)
+```
+
+Writes `preds/omidbaghchehsaraei_ft_transformer_{oof,test}.npy` (probabilities). Reads only `data/` (train.csv,
+test.csv); no other repo folder is needed (shared code: `../lib/`). One GPU. Packages: pytabkit (its RTDL models also
+need skorch; we used skorch 1.4.0), torch, scikit-learn, pandas.
+
+| Pair | Model | OOF AUC |
+|---|---|---:|
+| omidbaghchehsaraei_ft_transformer | the notebook's pytabkit FT-Transformer on our 5 folds | 0.967269 |
