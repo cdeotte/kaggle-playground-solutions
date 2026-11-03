@@ -20,6 +20,7 @@ Code for our solutions to Kaggle Playground Series competitions. Every solution 
 | Playground S6E9: Predicting Electric Vehicle Purchases (Sep 2026) | [s6e9_ev_purchases](s6e9_ev_purchases) | 1st place (private LB 0.94602) | [1st Place - The AI Relay](https://www.kaggle.com/competitions/playground-series-s6e9/writeups/1st-place-the-ai-relay) |
 | Playground S6E8: Predicting Smartphone Addiction (Aug 2026) | [s6e8_smartphone_addiction](s6e8_smartphone_addiction) | 1st place (private LB 0.97176); our 102 models alone: 0.97171 | [1st Place - Distributed Intelligence - NVIDIA Inference Hub](https://www.kaggle.com/competitions/playground-series-s6e8/writeups/1st-place-distributed-intelligence-nvidia-infe) |
 | Playground S6E5: Predicting F1 Pit Stops (May 2026) | [s6e5_f1_pit_stops](s6e5_f1_pit_stops) | 2nd place (private LB 0.95502); our 100 models alone: 0.95503 | [2nd Place - Autonomous Codex Yolo!](https://www.kaggle.com/competitions/playground-series-s6e5/writeups/2nd-place-autonomous-codex-yolo) |
+| Playground S6E4: Predicting Irrigation Need (Apr 2026) | [s6e4_irrigation_need](s6e4_irrigation_need) | 2nd place (private LB 0.98151); our 100 models alone: 0.98161 | [2nd Place - Claude Code and Codex - GPU LogReg](https://www.kaggle.com/competitions/playground-series-s6e4/writeups/2nd-place-claude-code-and-codex-gpu-logreg) |
 
 The code is shared as is. It is the code that produced our predictions, cleaned up for reading, and it was not re-run after
 the clean-up, so expect to adjust paths, package versions and memory settings for your own hardware.

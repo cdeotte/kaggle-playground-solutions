@@ -1,0 +1,17 @@
+numpy
+pandas
+scipy
+scikit-learn
+xgboost
+lightgbm
+catboost
+torch
+pytabkit
+ydf
+pytorch_tabular
+pytorch-tabnet
+pytorch-frame
+torch_geometric
+tabicl
+# GPU: cuML / cuDF / CuPy (RAPIDS) for the cuML models
+# model-specific notes: see each models/<model>/README.md
