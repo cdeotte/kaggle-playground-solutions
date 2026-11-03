@@ -25,3 +25,5 @@ Code for our solutions to Kaggle Playground Series competitions. Every solution 
 
 The code is shared as is. It is the code that produced our predictions, cleaned up for reading, and it was not re-run after
 the clean-up, so expect to adjust paths, package versions and memory settings for your own hardware.
+
+This repository is released under the [Apache License 2.0](LICENSE).
